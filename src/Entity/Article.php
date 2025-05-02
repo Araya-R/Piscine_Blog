@@ -32,6 +32,18 @@ class Article
     #[ORM\Column]
     private ?bool $isPublished = null;
 
+
+    //En créant la méthode Construct, on rend l'entité plus facile à instancier 
+    //avec toutes ses propriétés
+    public function __construct($title,$description,$content,$image){
+        $this->title = $title;
+        $this->description= $description;
+        $this->content = $content;
+        $this->image = $image;
+
+        $this->createdAt = new \DateTime();
+        $this->isPublished = true;
+    }
     public function getId(): ?int
     {
         return $this->id;

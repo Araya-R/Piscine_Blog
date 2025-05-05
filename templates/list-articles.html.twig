@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Piscine_Blog</title>
-	</head>
-	<body>
-		<header>
-			<h2>Mon Blog</h2>
-			<nav>
-				<ul>
-					<li> <a href="{{ path ('home') }}">Home</a></li>
-					<li><a href="{{ path ('create-article') }}">Create an article</a></li>
-					<li><a href="{{ path ('list-articles') }}">Articles list</a></li>
-				</ul>
-			</nav>
-		</header>
+{% extends "base.html.twig" %}
 
-		<main>
+{% block title %}
+	Articles list
+{% endblock %}
 
-			<h2>Liste des articles</h2>
+{% block main %}
+	<main>
 
-            {% for article in articles %}
+		<section class="success-message">
+			{% for message in app.flashes('success') %}
+				<p>{{ message }}</p>
+			{% endfor %}
+		</section>
 
-            <h3> <a href=" {{ path ('detail-article', {'id' : article.id }) }}">{{ article.title }}</a></h3>
-            <p> {{ article.description }}</p>
-            <p> {{ article.content }}</p>
-            <p> {{ article.image }}</p>
-            <p> {{ article.title }}</p>
-            <p> {{ article.createdAt | date ('d/m/Y') }}</p>
-                
-            {% endfor %}
-			
-		</main>
+		<h2>Liste des articles</h2>
 
-	</body>
-</html>
+		{% for article in articles %}
+			<article>
+				<h3>
+					<a href=" {{ path ('detail-article', {'id' : article.id }) }}">{{ article.title }}</a>
+				</h3>
+
+				<p>
+					<a href="{{ path('delete-article', {'id': article.id}) }}">Supprimer l'article</a>
+				</p>
+				<img src="{{ article.image }}" width="80%">
+
+			</article>
+		{% endfor %}
+	</main>
+{% endblock main %}

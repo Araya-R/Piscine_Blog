@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Piscine_Blog</title>
-	</head>
-	<body>
-		<header>
-			<h2>Mon Blog</h2>
-			<nav>
-				<ul>
-					<li><ahref="{{ path ('home') }}">Home</a></li>
-					<li><ahref="{{ path ('create-article') }}">Create an article</a></li>
-					<li><ahref="{{ path ('list-articles') }}">Articles list</a></li>
-				</ul>
-			</nav>
-		</header>
+{% extends "base.html.twig" %}
 
-		<main>
-			<h2>
-				Page non trouvée !
-			</h2>
-
-		</main>
-
-	</body>
-</html>
+{% block title %}Error 404{% endblock %}
+{% block main %} <h2> Error 404 : Page Non Trouvée !</h2>{% endblock main %}

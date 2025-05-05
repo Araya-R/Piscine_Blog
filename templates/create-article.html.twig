@@ -1,56 +1,41 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Piscine_Blog</title>
-	</head>
-	<body>
-		<header>
-			<h2>Mon Blog</h2>
-			<nav>
-				<ul>
-					<li> <a href="{{ path ('home') }}">Home</a></li>
-					<li><a href="{{ path ('create-article') }}">Create an article</a></li>
-					<li><a href="{{ path ('list-articles') }}">Articles list</a></li>
-				</ul>
-			</nav>
-		</header>
+{% extends "base.html.twig" %}
 
-		<main>
+{% block title %}Create an article
+{% endblock %}
+{% block main %}
+	<main>
 
-			<h2>Créer un article</h2>
+		<h2>Créer un article</h2>
 
-			<form method="POST">
-				<div>
-					<label>Title
-						<input type="text" name="title">
-					</label>
-				</div>
+		<form method="POST">
+			<div>
+				<label>Title
+					<input type="text" name="title">
+				</label>
+			</div>
 
-				<div>
-					<label>Description
-						<input type="text" name="description">
-					</label>
-				</div>
+			<div>
+				<label>Description
+					<input type="text" name="description">
+				</label>
+			</div>
 
-				<div>
-					<label>Content
-						<textarea name="content"></textarea>
-					</label>
-				</div>
+			<div>
+				<label>Content
+					<textarea name="content"></textarea>
+				</label>
+			</div>
 
-				<div>
-					<label>Image
-						<input type="text" name="image">
-					</label>
-				</div>
+			<div>
+				<label>Image
+					<input type="text" name="image">
+				</label>
+			</div>
 
-				<input type="submit">
-			</form>
+			<input type="submit">
+		</form>
 
-			
-		</main>
 
-	</body>
-</html>
+	</main>
+
+{% endblock main %}

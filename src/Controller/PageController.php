@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-
+use App\Repository\ArticleRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,4 +27,5 @@ class PageController extends AbstractController{
         // le contenu est le html et le code HTTP est défini 404
         return new Response($html, 404);
     }
+    
 }

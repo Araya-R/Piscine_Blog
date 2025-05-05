@@ -44,6 +44,13 @@ class Article
         $this->createdAt = new \DateTime();
         $this->isPublished = true;
     }
+
+    public function update($title,$description,$content,$image){
+        $this->title = $title;
+        $this->description= $description;
+        $this->content = $content;
+        $this->image = $image;
+    }
     public function getId(): ?int
     {
         return $this->id;

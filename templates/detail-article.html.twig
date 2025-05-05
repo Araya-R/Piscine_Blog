@@ -8,23 +8,25 @@
 
 	<main>
 
-		<h2>{{ article.title }}</h2>
+		<article>
+			<h2>{{ article.title }}</h2>
 
-		<p>
-			<a href="{{ path('delete-article', {'id': article.id}) }}">Supprimer l'article</a>
-		</p>
+			<p>
+				<a href="{{ path('delete-article', {'id': article.id}) }}">Supprimer l'article</a>
+			</p>
 
-		<img src="{{ article.image }}" width="80%">
+			<img src="{{ article.image }}" width="80%">
 
-		<p>
-			{{ article.description }}</p>
-		<p>
-			{{ article.content }}
-		</p>
+			<p>
+				{{ article.description }}</p>
+			<p>
+				{{ article.content }}
+			</p>
 
-		<p>
-			{{ article.createdAt | date ('d/m/Y') }}
-		</p>
+			<p>
+				{{ article.createdAt | date ('d/m/Y') }}
+			</p>
+		</article>
 
 	</main>
 {% endblock main %}

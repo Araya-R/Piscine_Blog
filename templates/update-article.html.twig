@@ -5,34 +5,34 @@
 {% block main %}
 	<main>
 
-		<h2>Créer un article</h2>
+		<h2>Update an article</h2>
 
 		<form method="POST">
 			<div>
 				<label>Title
-					<input type="text" name="title">
+					<input type="text" name="title" value=" {{ article.title}} ">
 				</label>
 			</div>
 
 			<div>
 				<label>Description
-					<input type="text" name="description">
+					<input type="text" name="description" value="{{ article.description }}">
 				</label>
 			</div>
 
 			<div>
 				<label>Content
-					<textarea name="content"></textarea>
+					<textarea name="content">{{ article.content }}</textarea>
 				</label>
 			</div>
 
 			<div>
 				<label>Image
-					<input type="text" name="image">
+					<input type="text" name="image" value="{{ article.image }}">
 				</label>
 			</div>
 
-			<input type="submit" value="Create">
+			<input type="submit" value="Update">
 		</form>
 
 

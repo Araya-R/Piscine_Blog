@@ -80,7 +80,6 @@ class ArticleController extends AbstractController
     }
 
     #[Route("/delete-article/{id}", name:"delete-article")]
-
     public function deleteArticle ($id, ArticleRepository $ArticleRepository, EntityManagerInterface $entityManager){
         //récupérer l'article dans ArticleRepository à supprimer 
         $article = $ArticleRepository->findOneById($id);
@@ -94,6 +93,32 @@ class ArticleController extends AbstractController
 
         //rediriger vers la page list-articles
         return $this->redirectToRoute('list-articles');
+    }
+
+    #[Route("/update-article/{id}", name:"update-article")]
+    public function displayUpdateArticle($id, Request $request, ArticleRepository $ArticleRepository, EntityManagerInterface $entityManager){
+        $article = $ArticleRepository->findOneById($id);
+
+        //verification de la méthode de la requête POST
+        if ($request->isMethod("POST")) {
+
+            //on récupère les données envoyées par le formulaire
+            $title = $request->request->get('title');
+            $description = $request->request->get('description');
+            $content = $request->request->get('content');
+            $image = $request->request->get('image');
+
+            //mise à jour des l'article avec les nouvelles données 
+            // via la méthode update créée dans l'entity
+            $article->update($title, $description, $content, $image);
+
+            //sauvegarde l'article
+            $entityManager->persist($article);
+            $entityManager->flush();
+        }
+
+        return $this->render('update-article.html.twig', ['article' => $article]);
+
     }
 
 }

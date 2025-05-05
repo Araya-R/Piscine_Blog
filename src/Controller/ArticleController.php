@@ -52,8 +52,20 @@ class ArticleController extends AbstractController{
         $articles = $ArticleRepository->findAll();
         //on peut maintenant utiliser $ArticleRepository pour accéder aux données
         //il récupère tous les articles dans la BDD
-        //findAll() = méthode  fournie par la class ServiceEntityRepository (extends)
+        //findAll() = méthode fournie par la class ServiceEntityRepository (extends)
         
         return $this->render('list-articles.html.twig', ['articles' => $articles]);
+    }
+
+    #[Route('/detail-article/{id}', name:"detail-article")]
+
+    //ArticleRepository est injecté par Symfony (autowiring)
+    //$id = {id} dans l'URL 
+    public function DisplayDetailArticle ($id, ArticleRepository $ArticleRepository){
+
+        //on utilise la méthode findOneById générée automatiquement par Doctrine
+        //qui cherche un seul article en BDD avec id = $id 
+        $article = $ArticleRepository->findOneById($id);
+        return $this->render('detail-article.html.twig', ['article' => $article]);
     }
 }

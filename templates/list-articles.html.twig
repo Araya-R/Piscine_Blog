@@ -19,36 +19,18 @@
 
 		<main>
 
-			<h2>Créer un article</h2>
+			<h2>Liste des articles</h2>
 
-			<form method="POST">
-				<div>
-					<label>Title
-						<input type="text" name="title">
-					</label>
-				</div>
+            {% for article in articles %}
 
-				<div>
-					<label>Description
-						<input type="text" name="description">
-					</label>
-				</div>
-
-				<div>
-					<label>Content
-						<textarea name="content"></textarea>
-					</label>
-				</div>
-
-				<div>
-					<label>Image
-						<input type="text" name="image">
-					</label>
-				</div>
-
-				<input type="submit">
-			</form>
-
+            <p> {{ article.title }}</p>
+            <p> {{ article.description }}</p>
+            <p> {{ article.content }}</p>
+            <p> {{ article.image }}</p>
+            <p> {{ article.title }}</p>
+            <p> {{ article.createdAt | date ('d/m/Y') }}</p>
+                
+            {% endfor %}
 			
 		</main>
 

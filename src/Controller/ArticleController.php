@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class ArticleController extends AbstractController{
 
     #[Route("/create-article", name:"create-article")]
@@ -66,6 +67,11 @@ class ArticleController extends AbstractController{
         //on utilise la méthode findOneById générée automatiquement par Doctrine
         //qui cherche un seul article en BDD avec id = $id 
         $article = $ArticleRepository->findOneById($id);
+
+        //si $article existe alors cç redirige vers la page 404
+        if(!$article){
+            return $this->redirectToRoute('404');
+        }
         return $this->render('detail-article.html.twig', ['article' => $article]);
     }
 }

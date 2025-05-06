@@ -16,14 +16,14 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
     private ?string $color = null;
 
     #[ORM\Column]
-    private ?\DateTime $createAt = null;
+    private ?\DateTime $createdAt = null;
 
     public function getId(): ?int
     {
@@ -47,7 +47,7 @@ class Category
         return $this->description;
     }
 
-    public function setDescription(?string $description): static
+    public function setDescription(string $description): static
     {
         $this->description = $description;
 
@@ -66,14 +66,14 @@ class Category
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTime
+    public function getCreatedAt(): ?\DateTime
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTime $createAt): static
+    public function setCreatedAt(\DateTime $createdAt): static
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

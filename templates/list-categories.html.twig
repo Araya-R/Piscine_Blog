@@ -10,7 +10,7 @@
 		<h2>Liste des categories</h2>
 
 		{% for category in categories %}
-			<article>
+			<article class= "{{ category.color }}">
 				<h3>
 				<a href=" {{ path ('detail-category', {'id' : category.id }) }}">{{ category.title }}</a>
 				</h3>

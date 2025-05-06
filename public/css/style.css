@@ -106,3 +106,55 @@ img {
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* Style des labels */
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #555;
+}
+
+/* Style des champs de texte et textarea */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Style du bouton submit */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.green {
+    background-color: #a4c5ac;
+}
+.brown {
+    background-color: rgb(161, 144, 144);
+}
+.blue{
+    background-color: #9fbbcd;
+}
+.red{
+    background-color: rgb(215, 180, 180);
+}

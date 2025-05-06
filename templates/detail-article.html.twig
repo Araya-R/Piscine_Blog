@@ -5,14 +5,13 @@
 {% endblock %}
 
 {% block main %}
-
 	<main>
 
 		<article>
 			<h2>{{ article.title }}</h2>
 
 			<p>
-				<a href="{{ path('delete-article', {'id': article.id}) }}">Supprimer l'article</a>
+				<a href="{{ path('update-article', {'id': article.id}) }}">✏️ Editer l'article ✏️</a>
 			</p>
 
 			<img src="{{ article.image }}" width="80%">
@@ -26,7 +25,10 @@
 			<p>
 				{{ article.createdAt | date ('d/m/Y') }}
 			</p>
-		</article>
 
+			<p>
+				<a href="{{ path('delete-article', {'id': article.id}) }}"> 🗑 Supprimer l'article 🗑 </a>
+			</p>
+		</article>
 	</main>
 {% endblock main %}

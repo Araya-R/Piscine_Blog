@@ -22,11 +22,11 @@
 				</h3>
 
 				<p>
-					<a href="{{ path('delete-article', {'id': article.id}) }}"> 🗑 Supprimer l'article 🗑 </a>
+					<a href="{{ path('update-article', {'id': article.id}) }}">✏️ Editer l'article ✏️</a>
 				</p>
 
 				<p>
-					<a href="{{ path('update-article', {'id': article.id}) }}">✏️ Editer l'article ✏️</a>
+					<a href="{{ path('delete-article', {'id': article.id}) }}"> 🗑 Supprimer l'article 🗑 </a>
 				</p>
 
 				<img src="{{ article.image }}" width="80%">
